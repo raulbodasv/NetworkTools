@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="min-h-screen flex items-center justify-center bg-gray-200">
+        <div class="bg-white rounded-lg shadow-lg p-8 w-96">
+            <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6" th:text="${title}"></h1>
+            <div class="flex justify-center">
+                <a th:href="@{/abrircheckport}" 
+                   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">
+                   Comprobar los puertos
+                </a>
+                <a th:href="@{/checkPorts}" 
+                   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">
+                   Comprobar todos los puertos abiertos
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

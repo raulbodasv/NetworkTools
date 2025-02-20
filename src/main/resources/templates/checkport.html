@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <div class="min-h-screen flex items-center justify-center bg-gray-100">
+        <div class="bg-white rounded-lg shadow-2xl p-8 w-96 border-2 border-gray-200">
+            <h1 class="text-3xl font-bold text-center text-gray-800 mb-8" th:text="${title}">Comprobar Puertos</h1>
+
+            <!-- Formulario -->
+            <form method="post" th:action="@{/checkPort}" th:object="${conn}" class="space-y-6">
+                <div class="flex flex-col">
+                    <label for="puerto" class="text-lg text-gray-700">Introduce el puerto</label>
+                    <input type="number" id="puerto" name="puerto" th:field="*{puerto}" placeholder="Ej. 80" 
+                           class="mt-2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </div>
+
+                <div class="flex justify-center">
+                    <input type="submit" value="Comprobar" 
+                           class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition duration-300 transform hover:scale-105">
+                </div>
+            </form>
+
+            <!-- Reporte -->
+            <div class="mt-8">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                <span th:text="${conn.respuestaPort}" class="text-gray-600 block p-4 bg-gray-100 rounded-lg shadow-md"></span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
